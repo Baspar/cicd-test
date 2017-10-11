@@ -10,7 +10,7 @@ exports['testsub'] = (assert) => {
 
 exports['testadd'] = (assert) => {
   assert.equal(add(3)(2), 5, '3+2=5')
-  assert.equal(add(2)(3), 4, '2+3=5')
+  assert.equal(add(2)(3), 5, '2+3=5')
 }
 
 require('test').run(exports)
