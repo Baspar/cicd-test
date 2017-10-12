@@ -1,3 +1,7 @@
 language: node_js
 node_js:
-  - "8"
+    - "8"
+after_failure:
+    - curl https://api.telegram.org/bot310803534:AAGT4ExntIHtOerZvQXQQCkL62mYt4uGp84/sendMessage\chat_id\=82187516&text=Tests%20Failed
+after_success:
+    - curl https://api.telegram.org/bot310803534:AAGT4ExntIHtOerZvQXQQCkL62mYt4uGp84/sendMessage\chat_id\=82187516&text=Tests%20Passed
