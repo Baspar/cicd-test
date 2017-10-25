@@ -1,11 +1,8 @@
 version: 2
-machine:
-  pre:
-    - sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
 jobs:
   front:
     docker:
-      - image: circleci/clojure:lein-2.7.1
+      - image: cmeter/clojure-phantomjs
     environment:
       TARGET: "front"
     steps:
