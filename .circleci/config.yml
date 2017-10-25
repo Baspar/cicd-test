@@ -1,18 +1,12 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/clojure:lein-2.7.1
-
-    steps:
-      - checkout
-
   front:
     docker:
       - image: circleci/clojure:lein-2.7.1
     environment:
       TARGET: "front"
     steps:
+      - checkout
       - run: bash test.sh
 
   back:
@@ -21,16 +15,12 @@ jobs:
     environment:
       TARGET: "back"
     steps:
+      - checkout
       - run: bash test.sh
 
 workflows:
   version: 2
-  build_test:
+  build:
     jobs:
-      - build
       - back:
-          requires:
-            - build
       - front:
-          requires:
-            - build
